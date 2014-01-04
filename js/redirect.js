@@ -44,7 +44,7 @@ function appStoreLink() {
 	else if (isMobile.iOS() && (messageParameter && !(messageParameter === ""))) {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);	
 		setTimeout(function() {
-  			window.location = "itunes.apple.com/us/app/youtube/id544007664?mt=8";
+  			window.location = "http://itunes.apple.com/us/app/youtube/id544007664?mt=8";
 		}, 10);
 		
 		window.location = "chatwala://message/" + messageParameter;
