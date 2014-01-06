@@ -22,12 +22,14 @@ var isMobile = {
 function messageIdFromURL(){
 	var URL = window.location.href;
 	var res;
-	if(!(URL.indexOf('#') === -1)) {
-		res = URL.split("#");
-		console.log('Parsed message ID, will try to redirect if mobile device');
+	
+	if(!(URL.indexOf('?') === -1)) {
+		res = URL.split("?");
 	}
+	else if(!(URL.indexOf('#') === -1)) {
+ -      res = URL.split("#");
+ -  }
 	else {
-		console.log('No message ID found in URL');
 		return undefined;
 	}
 	
@@ -46,10 +48,8 @@ function appStoreLink() {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);	
 		setTimeout(function() {
   			window.location = "http://itunes.apple.com/us/app/youtube/id544007664?mt=8";
-  			console.log('iOS iTunes redirect');
-		}, 10);
+		}, 20);
 		
-		console.log('Attempting chatwala iOS launch');
 		window.location = "chatwala://message/" + messageParameter;
 	}
 	else {} // Don't do anything here - let them sit on the homepage
