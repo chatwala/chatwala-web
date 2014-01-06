@@ -27,8 +27,8 @@ function messageIdFromURL(){
 		res = URL.split("?");
 	}
 	else if(!(URL.indexOf('#') === -1)) {
- -      res = URL.split("#");
- -  }
+        res = URL.split("#");
+    }
 	else {
 		return undefined;
 	}
