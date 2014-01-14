@@ -1,301 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>chatwala</title>
-        <meta name="description" content="App description">
-        <meta name="viewport" content="width=device-width">
-        <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-		<script src="js/redirect.js"></script>
-        <style type="text/css">
-            * {
-                margin: 0;
-                padding: 0;
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
-                box-sizing: border-box;
-            }
-
-            html {
-                font-family: 'Average Sans', sans-serif;
-                background: url(assets/images/bg.jpg) no-repeat top center;
-                background-size: cover;
-            }
-
-            @font-face {
-                font-family: 'cwfont';
-                src: url('assets/fonts/cw.eot');
-            }
-
-            @font-face {
-                font-family: 'cwfont';
-                src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAALAIAAAwAwT1MvMg6x/TUAAAC8AAAAYGNtYXDf7ODJAAABHAAAAExnYXNwAAAAEAAAAWgAAAAIZ2x5Zvuo2ekAAAFwAAABfGhlYWQAy9eBAAAC7AAAADZoaGVhB8EDxgAAAyQAAAAkaG10eAoAAQcAAANIAAAAEGxvY2EAyAAwAAADWAAAAAptYXhwAAYAbAAAA2QAAAAgbmFtZchWDuIAAAOEAAABJ3Bvc3QAAwAAAAAErAAAACAAAwQAAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAACDgCwPA/8D/wAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAACAAAAAwAAABQAAwABAAAAFAAEADgAAAAKAAgAAgACACDgAuAL//3//wAAACDgAuAL//3////hIAAf+AADAAEAAAAAAAAAAAAAAAEAAf//AA8AAQAAAAAAAAAAAAIAADc5AQAAAAABAQb/vwLbA8EAGAAABSMRIzUzNTQ+AjsBFSMiDgIdATMHIxECPtBoaBg1Vj+KVhkbDgSdEotBAgGxajZVOyCxCRIaElix/f8AAAAAAQABACED/wNfAGkAAAEOAwc+AzcOAwcuAyMiDgIVFB4CFy4DJw4DFRQeAhciLgInMBQwFDEUHgIXDgMjKgEuASceAzMOAyMqAS4BJx4DMzI+Aic2JjYmNz4DNwP/Dh0fHxARHBgSBhAgISMRDyInKxYsTDkhAQECAUF6bmAnBwoHBA0ZIhUNGRgWCxotPSQGDg4OBwUKCgoECiYzPiIaPkFHJAcMDQwHJEtSVC2Q4JZPAQEBAQIBDx0aGAoC/QYLCAYCChgeIRMJEAwLAw8ZEQkhOUwrBwwMCwYDIjhOMAwZGhwPGzMsJg4EBwkGAQEnRDYmBwIDAQEBAQEfNSYXFSIXDAEBARYjGA1srNRoBAYHBwMLGRwdEAAAAAABAAAAAQAAsj7RJl8PPPUACwQAAAAAAM7WyYIAAAAAztbJggAA/78D/wPBAAAACAACAAAAAAAAAAEAAAPA/8AAAAQAAAAAAQP/AAEAAAAAAAAAAAAAAAAAAAAEAAAAAAIAAAAEAAEGBAAAAQAAAAAACgAwAL4AAAABAAAABABqAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAADgCuAAEAAAAAAAEACgAAAAEAAAAAAAIADgA5AAEAAAAAAAMACgAgAAEAAAAAAAQACgBHAAEAAAAAAAUAFgAKAAEAAAAAAAYABQAqAAEAAAAAAAoAKABRAAMAAQQJAAEACgAAAAMAAQQJAAIADgA5AAMAAQQJAAMACgAgAAMAAQQJAAQACgBHAAMAAQQJAAUAFgAKAAMAAQQJAAYACgAvAAMAAQQJAAoAKABRAHIAYQBoAHUAbABWAGUAcgBzAGkAbwBuACAAMAAuADAAcgBhAGgAdQBscmFodWwAcgBhAGgAdQBsAFIAZQBnAHUAbABhAHIAcgBhAGgAdQBsAEcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==) format('truetype'),
-                     url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAUYAAsAAAAABMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABPUy8yAAABCAAAAGAAAABgDrH9NWNtYXAAAAFoAAAATAAAAEzf7ODJZ2FzcAAAAbQAAAAIAAAACAAAABBnbHlmAAABvAAAAXwAAAF8+6jZ6WhlYWQAAAM4AAAANgAAADYAy9eBaGhlYQAAA3AAAAAkAAAAJAfBA8ZobXR4AAADlAAAABAAAAAQCgABB2xvY2EAAAOkAAAACgAAAAoAyAAwbWF4cAAAA7AAAAAgAAAAIAAGAGxuYW1lAAAD0AAAAScAAAEnyFYO4nBvc3QAAAT4AAAAIAAAACAAAwAAAAMEAAGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAg4AsDwP/A/8ADwABAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAgAAAAMAAAAUAAMAAQAAABQABAA4AAAACgAIAAIAAgAg4ALgC//9//8AAAAg4ALgC//9////4SAAH/gAAwABAAAAAAAAAAAAAAABAAH//wAPAAEAAAAAAAAAAAACAAA3OQEAAAAAAQEG/78C2wPBABgAAAUjESM1MzU0PgI7ARUjIg4CHQEzByMRAj7QaGgYNVY/ilYZGw4EnRKLQQIBsWo2VTsgsQkSGhJYsf3/AAAAAAEAAQAhA/8DXwBpAAABDgMHPgM3DgMHLgMjIg4CFRQeAhcuAycOAxUUHgIXIi4CJzAUMBQxFB4CFw4DIyoBLgEnHgMzDgMjKgEuASceAzMyPgInNiY2Jjc+AzcD/w4dHx8QERwYEgYQICEjEQ8iJysWLEw5IQEBAgFBem5gJwcKBwQNGSIVDRkYFgsaLT0kBg4ODgcFCgoKBAomMz4iGj5BRyQHDA0MByRLUlQtkOCWTwEBAQECAQ8dGhgKAv0GCwgGAgoYHiETCRAMCwMPGREJITlMKwcMDAsGAyI4TjAMGRocDxszLCYOBAcJBgEBJ0Q2JgcCAwEBAQEBHzUmFxUiFwwBAQEWIxgNbKzUaAQGBwcDCxkcHRAAAAAAAQAAAAEAALI+0SZfDzz1AAsEAAAAAADO1smCAAAAAM7WyYIAAP+/A/8DwQAAAAgAAgAAAAAAAAABAAADwP/AAAAEAAAAAAED/wABAAAAAAAAAAAAAAAAAAAABAAAAAACAAAABAABBgQAAAEAAAAAAAoAMAC+AAAAAQAAAAQAagABAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA4ArgABAAAAAAABAAoAAAABAAAAAAACAA4AOQABAAAAAAADAAoAIAABAAAAAAAEAAoARwABAAAAAAAFABYACgABAAAAAAAGAAUAKgABAAAAAAAKACgAUQADAAEECQABAAoAAAADAAEECQACAA4AOQADAAEECQADAAoAIAADAAEECQAEAAoARwADAAEECQAFABYACgADAAEECQAGAAoALwADAAEECQAKACgAUQByAGEAaAB1AGwAVgBlAHIAcwBpAG8AbgAgADAALgAwAHIAYQBoAHUAbHJhaHVsAHIAYQBoAHUAbABSAGUAZwB1AGwAYQByAHIAYQBoAHUAbABHAGUAbgBlAHIAYQB0AGUAZAAgAGIAeQAgAEkAYwBvAE0AbwBvAG4AAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=) format('woff');
-                font-weight: normal;
-                font-style: normal;
-            }
-
-            [class^="icon-"], [class*=" icon-"] {
-                font-family: 'cwfont';
-                speak: none;
-                font-style: normal;
-                font-weight: normal;
-                font-variant: normal;
-                text-transform: none;
-                line-height: 1;
-
-                /* Better Font Rendering =========== */
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
-
-            .icon-facebook:before {
-                content: "\e002";
-                color: #3C5A93;
-            }
-            .icon-twitter:before {
-                content: "\e00b";
-                color: #429AF7;
-            }
-
-
-            body {
-                font-size: 62.5%;
-            }
-
-            h1 {
-                font-size: 6em;
-            }
-
-            p {
-                font-size: 1.6em;
-            }
-
-            img {
-                max-width: 100%;
-            }
-
-            .logo_container {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                display: table;
-                text-align: center;
-                z-index: 1;
-            }
-
-            .logo_inner {
-                display: table-cell;
-                height: 100%;
-                vertical-align: middle;
-                padding: 10px;
-            }
-
-            .logo {
-                margin: 0 auto;
-            }
-
-            .about {
-                text-align: center;
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                padding: 10px;
-                color: #fff;
-                display: table;
-                -webkit-transition: all .25s;
-                -moz-transition: all .25s;
-                -o-transition: all .25s;
-                transition: all .25s;
-                -webkit-transform: scale(0.2);
-                -moz-transform: scale(0.2);
-                -o-transform: scale(0.2);
-                transform: scale(0.2);
-                opacity: 0;
-                z-index: 5;
-            }
-
-            .about.active {
-                opacity: 1;
-                -webkit-transform: scale(1);
-                -moz-transform: scale(1);
-                -o-transform: scale(1);
-                transform: scale(1);
-            }
-
-            .about .content {
-                background: #0a2045;
-                background: rgba(10, 32, 69, 0.8);
-                height: 100%;
-                position: relative;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .about p {
-                max-width: 500px;
-                margin: 20px auto;
-                line-height: 1.8em;
-                padding: 10px;
-            }
-
-            .about p:last-child {
-                margin-top: ;
-            }
-
-            .close {
-                color: #fff;
-                text-decoration: none;
-                position: absolute;
-                font-size: 3em;
-                right: 10px;
-                top: 10px;
-                line-height: 1;
-            }
-
-            .nav {
-                position: absolute;
-                top: 10px;
-                left: 10px;
-                z-index: 2;
-            }
-
-            .nav a {
-                font-size: 2em;
-                color: #000;
-                text-decoration: none;
-                -webkit-transition: all .25s;
-                -moz-transition: all .25s;
-                -o-transition: all .25s;
-                transition: all .25s;
-            }
-
-            .nav a:hover {
-                color: #6bd9d5;
-            }
-
-            .apps {
-                position: absolute;
-                width: 100%;
-                bottom: 5%;
-                text-align: center;
-                z-index: 2;
-            }
-
-            .apps a {
-                width: 49%;
-                display: inline-block;
-                vertical-align: middle;
-                padding: 10px;
-                text-align: left;
-            }
-
-            .apps a:first-child {
-                text-align: right;
-            }
-
-            .social {
-                position: absolute;
-                right: 10px;
-                top: 10px;
-                z-index: 2;
-            }
-
-            .social a {
-                text-decoration: none;
-                font-size: 3em;
-                -webkit-transition: all .25s;
-                -moz-transition: all .25s;
-                -o-transition: all .25s;
-                transition: all .25s;
-            }
-
-            .social a:hover {
-                opacity: 0.9;
-            }
-
-            .social a:first-child {
-                margin-right: 20px;
-            }
-        </style>
-	<script type="text/javascript">
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-46207837-2']);
-	  _gaq.push(['_setDomainName', 'chatwala.com']);
-	  _gaq.push(['_setAllowLinker', true]);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-	</script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="MobileOptimized" content="320">
+    <title>Chatwala</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/redirect.js"></script>
+    
     <script type="text/javascript">
-		$(document).ready(function() {
-			appStoreLink();
-		});
-	</script>
-    </head>
-    <body>
-        <div class="nav">
-            <a href="javascript:void(0)" id="about_toggle">About</a>
-        </div>
-        <div class="social">
-            <a href="https://facebook.com/" target="_blank" class="icon-facebook"></a>
-            <a href="https://twitter.com/" target="_blank" class="icon-twitter"></a>
-        </div>
-        <div class="about" id="modal">
-            <div class="content">
-                <a href="javascript:void(0)" class="close" id="modal_close">X</a>
-                <h1>chatwala</h1>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-46207837-2']);
+      _gaq.push(['_setDomainName', 'chatwala.com']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
 
-                <p>hello@chatwala.com</p>
-            </div>
-        </div>
-        <div class="logo_container">
-            <div class="logo_inner">
-                <img src="http://placehold.it/400x400/cccccc&text=logo+here" alt="" class="logo">
-            </div>
-        </div>
-        <div class="apps">
-            <a href="http://www.apple.com/itunes/charts/free-apps/" target="_blank"><img src="assets/images/App-Store@2x.png" alt=""></a>
-            <a href="https://play.google.com/store?hl=en" target="_blank"><img src="assets/images/Google-Play@2x.png" alt=""></a>
-        </div>
-        <script>
-            (function() {
-                var about_toggle = document.getElementById('about_toggle'),
-                    modal = document.getElementById('modal'),
-                    modal_close = document.getElementById('modal_close');
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
 
-                if (window.addEventListener) {
-                    about_toggle.addEventListener('click', toggleModal, false);
-                    modal_close.addEventListener('click', closeModal, false);
-                }
-                else if (window.attachEvent) {
-                    about_toggle.attachEvent('click', toggleModal, false);
-                    modal_close.attachEvent('click', closeModal, false);
-                }
+    <script type="text/javascript">
+        $(document).ready(function() {
+            appStoreLink();
+        });
+    </script>
+</head>
 
-                function closeModal() {
-                    modal.className = 'about';
-                }
-
-                function openModal() {
-                    modal.className = 'about active';
-                }
-
-                function toggleModal() {
-                    if (modal.className.indexOf('active') > -1) {
-                        closeModal();
-                    }
-                    else {
-                        openModal();
-                    }
-                }
-            })();
-        </script>
-    </body>
+<body>
+    <div class="logo"></div>
+    <div class="menu">
+       <a class="about" href="#">About</a>
+   </div>
+   <div class="social_icons">
+    <a class="facebook" href="https://www.facebook.com/ChatwalaApp" target="_blank"></a>
+    <a class="twitter" href="https://twitter.com/ChatwalaApp" target="_blank"></a>
+</div>
+<div class="app">
+	<a class="appstore" href="#"></a>
+    <a class="googlepaly" href="#"></a>
+</div>
+<div class="col1"></div>
+<div class="col2"></div>
+<div class="copyright">
+	<p>&copy; Copyright Chatwala 2014 | <a href="http://www.chatwala.com/privacy" target="_blank">Privacy Policy</a></p>
+</div>
+<div class="lightBox">
+	<a class="close" href="#"></a>
+    <div class="clear"></div>
+    <h1>Chatwala</h1>
+    <p>Chatwala exists to make communication personal again. We strive to enable authentic and timeless conversations between friends. Chatwala is a new video messaging application that lets you share your reaction to your friends' video messages. Try it out.</p>
+    <p>Our company values are simplicity, authenticity, and presence. Say hello any time:</p>
+    <p class="dotted_line"><a href="mailto:hello@chalwala.com">hello@chatwala.com</a></p>
+    <span class="lightBox_copyright">&copy; Copyright Chatwala 2014 | <a href="http://www.chatwala.com/privacy" target="_blank">Privacy Policy</a></span>
+</div>
+</body>
 </html>

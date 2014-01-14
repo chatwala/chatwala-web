@@ -22,13 +22,13 @@ var isMobile = {
 function messageIdFromURL(){
 	var URL = window.location.href;
 	var res;
-	
-	if(!(URL.indexOf('?') === -1)) {
-		res = URL.split("?");
+	if(!(URL.indexOf('#') === -1)) {
+		res = URL.split("#");
 	}
-	else if(!(URL.indexOf('#') === -1)) {
-        res = URL.split("#");
-    }
+	else if(!(URL.indexOf('?') === -1)) {
+	  	res = URL.split("?");
+	}
+	
 	else {
 		return undefined;
 	}
@@ -47,8 +47,8 @@ function appStoreLink() {
 	else if (isMobile.iOS() && (messageParameter && !(messageParameter === ""))) {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);	
 		setTimeout(function() {
-  			window.location = "http://itunes.apple.com/us/app/youtube/id544007664?mt=8";
-		}, 20);
+  			window.location = "itms-apps://itunes.apple.com/us/app/youtube/id544007664?mt=8";
+		}, 10);
 		
 		window.location = "chatwala://message/" + messageParameter;
 	}
