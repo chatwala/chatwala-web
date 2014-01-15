@@ -14,6 +14,24 @@ body {
 	letter-spacing:1px;
 	overflow:hidden;
 }
+
+.privacyBody {
+	  min-width: 320px;
+    max-width: 700px;
+    margin: 0 auto 0 auto;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    font-size: 16px;
+    overflow:scroll;
+}
+
+.content {
+	width:inherit;
+	height:100%;
+	background:white;
+	margin-top:75px;
+}	
+
 .col1 {
 	margin:0;
 	padding:0;
@@ -74,7 +92,7 @@ a:hover {
 	float:left;
 	display:block;
 }
-.googlepaly {
+.googleplay {
 	margin:0;
 	padding:0;
 	background:url(../images/googleplay.png) 0 0 no-repeat;
@@ -122,14 +140,24 @@ a:hover {
 	clear:both;
 }
 .copyright {
-	margin:0;
+	margin:0;	
 	padding:0;
 	position:absolute;
-	top:96%;
+	top:93%;
 	left:0;
 	text-align:center;
 	color:#0a2045;
-	font-size:10px;
+	font-size:16px;
+	width:100%;
+}
+.privacyCopyright{
+	margin:0;	
+	padding:0;
+	bottom: 0;
+	left:0;
+	text-align:center;
+	color:#0a2045;
+	font-size:16px;
 	width:100%;
 }
 .lightBox {
@@ -184,7 +212,7 @@ a:hover {
 	.footer {
 		height:15px;
 	}
-	.appstore, .googlepaly {
+	.appstore, .googleplay {
 		background-size:190px 60px;
 		width:190px;
 		height:60px;
@@ -240,7 +268,7 @@ a:hover {
 	h1 {
 		margin:0 0 8% 0;
 	}
-	.appstore, .googlepaly {
+	.appstore, .googleplay {
 		background-size:120px 38px;
 		width:120px;
 		height:38px;
@@ -265,7 +293,7 @@ a:hover {
 		left:164px;
 		width:240px;	
 	}
-	.appstore, .googlepaly {
+	.appstore, .googleplay {
 		background-size:120px 38px;
 		width:120px;
 		height:38px;
