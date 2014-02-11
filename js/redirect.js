@@ -42,7 +42,7 @@ function appStoreLink() {
 	
 	if ( isMobile.Android() && (messageParameter && !(messageParameter === ""))) {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'ANDROID']);
-		window.location = "market://details?id=com.chatwala.chatwala&message=" + messageParameter;			
+		window.location = "http://www.chatwala.com/droidredirect.html?" + messageParameter;
     }
 	else if (isMobile.iOS() && (messageParameter && !(messageParameter === ""))) {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);	

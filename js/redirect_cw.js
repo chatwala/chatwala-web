@@ -42,15 +42,16 @@ function appStoreLink() {
 	
 	if ( isMobile.Android() && (messageParameter && !(messageParameter === ""))) {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'ANDROID']);
-		window.location = "market://details?id=com.chatwala.chatwala&message=" + messageParameter;			
-    }
+		window.location = "http://www.chatwala.com/droidredirect.html?" + messageParameter;			
+  }
 	else if (isMobile.iOS() && (messageParameter && !(messageParameter === ""))) {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);	
+		
 		setTimeout(function() {
   			window.location = "itms-apps://itunes.apple.com/us/app/chatwala-video-messenger/id775982711";
-		}, 10);
-		
-		window.location = "chatwala://message/" + messageParameter;
+		}, 50);
+		window.location = "chatwala://message/" + messageParameter;	
+
 	}
 	else {} // Don't do anything here - let them sit on the homepage
 };
