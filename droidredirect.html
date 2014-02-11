@@ -1,0 +1,30 @@
+  <!DOCTYPE HTML>
+  <html lang="en-US">
+  <head>
+      <meta charset="UTF-8">
+      <script language="javascript">
+          function messageIdFromURL(){
+            var URL = window.location.href;
+            var res;
+            if(!(URL.indexOf('#') === -1)) {
+              res = URL.split("#");
+            }
+            else if(!(URL.indexOf('?') === -1)) {
+                res = URL.split("?");
+            }
+            
+            else {
+              return undefined;
+            }
+            
+            return res[res.length - 1];
+          }
+
+          var messageParameter = messageIdFromURL();
+
+
+          window.location.href = "market://details?id=com.chatwala.chatwala&message=" + messageParameter;
+      </script>
+      <title>Chatwala Android Page Redirect</title>
+  </head>
+  </html>
