@@ -202,6 +202,12 @@ a:hover {
 	height:40px;
 	float:right;
 }
+
+#loading_message { 
+   margin: 22% auto 0;
+   width: 280px;
+}
+
 @media screen and (max-width: 1600px){
 	.logo {
 		margin:-302px 0 0 -196px;
@@ -350,6 +356,11 @@ a:hover {
 	.menu a{
 		font-size:20px;
 	}
+	
+	#loading_message { 
+   margin: 110% auto 0;
+   width: 280px;
+	}
 }
 @media screen and (max-width: 320px){
 	h1 {
@@ -369,4 +380,8 @@ a:hover {
 		border-bottom:3px dotted #db013f;
 		color:#FFF;
 	}
+	#loading_message { 
+   margin: 110% auto 0;
+   width: 280px;
+}
 }
