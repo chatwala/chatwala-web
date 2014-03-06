@@ -48,12 +48,12 @@ function appStoreLink() {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);	
 		
 		localStorage.firstMessageID = messageParameter;	
+		window.location = "chatwala-qa://message/" + messageParameter;
 
 		setTimeout(function() {
   			window.location = "itms-apps://itunes.apple.com/us/app/chatwala-video-messenger/id775982711";
 		}, 50);
 		
-		window.location = "chatwala-qa://message/" + messageParameter;
 
 
 	}

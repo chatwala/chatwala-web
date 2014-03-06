@@ -53,7 +53,7 @@ function appStoreLink() {
 		window.location = "chatwala-dev://message/" + messageParameter;
 
 		setTimeout(function() {
-  		window.location = "itms-apps://itunes.apple.com/us/app/chatwala-video-messenger/id775982711";
+  			window.location = "itms-apps://itunes.apple.com/us/app/chatwala-video-messenger/id775982711";
 		}, 50);
 		
 		
