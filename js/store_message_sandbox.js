@@ -1,9 +1,9 @@
 window.onload = function() {
 	if(typeof localStorage.firstMessageID !== 'undefined'){
 		var id = localStorage.firstMessageID;
-		window.location = "chatwala-qa://message/" + id;
+		window.location = "chatwala-sandbox://message/" + id;
 	}
 	else{
-		window.location = "chatwala-qa://"
+		window.location = "chatwala-sandbox://"
 	}
 }

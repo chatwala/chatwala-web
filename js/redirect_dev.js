@@ -50,12 +50,12 @@ function appStoreLink() {
 		
 		//add messageParameter (message_id) to localStorage to retrieve during first app launch
 		localStorage.firstMessageID = messageParameter;	
-				
+		window.location = "chatwala-dev://message/" + messageParameter;
+
 		setTimeout(function() {
   		window.location = "itms-apps://itunes.apple.com/us/app/chatwala-video-messenger/id775982711";
 		}, 50);
 		
-		window.location = "chatwala-dev://message/" + messageParameter;
 		
 	}
 	else {} // Don't do anything here - let them sit on the homepage
