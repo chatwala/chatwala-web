@@ -49,7 +49,7 @@ function appStoreLink() {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);	
 		
 		//add messageParameter (message_id) to localStorage to retrieve during first app launch
-		localStorage.firstMessageID = messageParameter;	
+		localStorage.firstMessageID-dev = messageParameter;	
 		window.location = "chatwala-dev://message/" + messageParameter;
 
 		setTimeout(function() {
