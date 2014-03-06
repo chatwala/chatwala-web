@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+	<script type="text/javascript">
+		function messageIdFromURL(){
+			var URL = window.location.href;
+			var res;
+			if(!(URL.indexOf('?') === -1)) {
+			  	res = URL.split("?");
+			}		
+			else {
+				return undefined;
+			}
+			return res[res.length - 1];
+		}
+		var id = messageIdFromURL();
+		var refererID = id.split("&")[1];
+		window.location = "market://details?id=com.chatwala.chatwala&" + refererID;
+
+	</script>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
