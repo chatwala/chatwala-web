@@ -49,14 +49,25 @@ function appStoreLink() {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);	
 		
 		//add messageParameter (message_id) to localStorage to retrieve during first app launch
-		localStorage.firstMessageID-dev = messageParameter;	
+		attemptToStore(messageParameter);
+
 		window.location = "chatwala-dev://message/" + messageParameter;
 
 		setTimeout(function() {
   			window.location = "itms-apps://itunes.apple.com/us/app/chatwala-video-messenger/id775982711";
-		}, 50);
+		}, 200);
 		
 		
 	}
 	else {} // Don't do anything here - let them sit on the homepage
 };
+
+function attemptToStore(messageParameter){
+	try{
+		localStorage.firstMessageID = messageParameter;
+		
+	}catch(e){
+		
+	}
+
+}
