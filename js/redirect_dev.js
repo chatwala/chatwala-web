@@ -47,7 +47,11 @@ function appStoreLink() {
     }
 	else if (isMobile.iOS() && (messageParameter && !(messageParameter === ""))) {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);	
-		
+
+        if(messageParameter.split('.').length === 1){
+            messageParameter = 's1.' + messageParameter;
+        }
+
 		//add messageParameter (message_id) to localStorage to retrieve during first app launch
 		attemptToStore(messageParameter);
 
@@ -64,7 +68,7 @@ function appStoreLink() {
 
 function attemptToStore(messageParameter){
 	try{
-		localStorage.firstMessageID = messageParameter;
+		localStorage.firstMessageID_dev = messageParameter;
 		
 	}catch(e){
 		

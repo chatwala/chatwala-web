@@ -45,12 +45,17 @@ function appStoreLink() {
 		window.location = "http://www.chatwala.com/droidredirect.html?" + messageParameter;
     }
 	else if (isMobile.iOS() && (messageParameter && !(messageParameter === ""))) {
-		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);	
-		
+		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);
+
+        if(messageParameter.split('.').length === 1){
+            messageParameter = 's1.' + messageParameter;
+        }
+
 		attemptToStore(messageParameter);
 		
 		//add messageParameter (message_id) to localStorage to retrieve during first app launch
 		window.location = "chatwala-qa://message/" + messageParameter;
+
 
 		setTimeout(function() {
   			window.location = "itms-apps://itunes.apple.com/us/app/chatwala-video-messenger/id775982711";
@@ -64,7 +69,7 @@ function appStoreLink() {
 
 function attemptToStore(messageParameter){
 	try{
-		localStorage.firstMessageID = messageParameter;
+		localStorage.firstMessageID_qa = messageParameter;
 
 	}catch(e){
 
