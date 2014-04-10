@@ -47,6 +47,10 @@ function appStoreLink() {
 	else if (isMobile.iOS() && (messageParameter && !(messageParameter === ""))) {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);
 
+        if(messageParameter.split('.').length === 1){
+            messageParameter = 's1.' + messageParameter;
+        }
+
         attemptToStore(messageParameter);
 		
 		window.location = "chatwala://message/" + messageParameter;
