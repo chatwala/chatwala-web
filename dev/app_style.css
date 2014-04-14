@@ -2,26 +2,26 @@
 
 html {
     position:relative;
-    width:100%;
-    height:100%;
+    width:320px;
+    height:480px;
     margin:0;
     padding:0;
-
 }
 
 body {
     position:relative;
-    width:100%;
-    height:100%;
+    width:320px;
+    height:480px;
     margin:0;
     padding:0;
-
+    overflow:hidden;
 }
 
 div {
     width:100%;
     margin:0;
     padding:0;
+    overflow:hidden;
 }
 .chatwala_app_container{
     width:100%;
@@ -30,7 +30,6 @@ div {
 
 .top_container {
     height:50%;
-
     background-color:white;
     position:relative;
 }
@@ -58,14 +57,13 @@ div {
 #top_text{
    position:absolute;
    top:50%;
-   margin-top:-90px;
+   margin-top:-80px;
    text-align: center;
 
 }
 
 #message_thumbnail{
-    width:inherit;
-    height:100%
+
 }
 
 .appstore {
