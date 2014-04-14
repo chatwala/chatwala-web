@@ -51,7 +51,7 @@ function appStoreLink() {
 
         if(messageParameter && !(messageParameter === "")) {
 
-		//_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);
+		_gaq.push(['_trackEvent', 'REDIRECT', isMobile.Android()? 'ANDROID' : 'IOS']);
 
         document.getElementById("main_body").onclick = function(messageParameter){
             goToAppOrStore(messageParameter)
@@ -91,9 +91,15 @@ function getMessageThumbnail(message_id, callback){
 }
 
 function goToAppOrStore(message_id){
-        console.log("Going to app or store!");
+    console.log("Going to app or store!");
+    if(isMobile.Android()) {
+        window.location = "http://www.chatwala.com/dev/droidredirect.html?" + message_id;
+    }
+    else {
         window.location = "chatwala-dev://message/" + message_id;
         setTimeout(function() {
             window.location = "itms-apps://itunes.apple.com/us/app/chatwala-video-messenger/id775982711";
         }, 200);
+    }
+
 }
