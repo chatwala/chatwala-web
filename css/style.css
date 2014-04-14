@@ -208,6 +208,86 @@ a:hover {
    width: 280px;
 }
 
+#chatwala_main{
+    visibility:visible;
+}
+
+
+#chatwala_app_container{
+    width:100%;
+    height:100%;
+    visibility: hidden;
+}
+
+.top_container {
+    height:50%;
+    background:url(../images/top_area.png) no-repeat;
+    background-size: 100%;
+    position:relative;
+}
+
+.chatwala_button{
+    display:block;
+    position:absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+    text-align: center;
+    height:100px;
+    width:100px;
+    background:url(../images/play_button.png) 0 no-repeat;
+    background-size: 100px 100px;
+    z-index: 100;
+}
+
+#bottom_container {
+    bottom: 0;
+    height: 50%;
+    width:100%;
+    /*background-image:url('http://chatwala-deveast-20.azurewebsites.net/messages/messageThumbnail?share_id=2zzA2r');*/
+    background-repeat:no-repeat;
+    /*background-attachment:fixed;*/
+    background-position:center;
+
+}
+
+#top_text{
+    position:absolute;
+    top:50%;
+    margin-top:-80px;
+    text-align: center;
+
+}
+
+
+#app_store {
+    position:absolute;
+    top:50%;
+    margin-top:-15px;
+    width:180px;
+    height:50px;
+    left:50%;
+    margin-left:-90px;
+    background:url(../images/appstore.png) 0 0 no-repeat;
+    background-size:180px 50px;
+    visibility:hidden;
+}
+
+
+#play_store {
+    position:absolute;
+    top:50%;
+    margin-top:-15px;
+    width:211px;
+    height:67px;
+    left:50%;
+    margin-left:-105px;
+    background:url(../images/googleplay.png) 0 0 no-repeat;
+    background-size:211px 67px;
+    visibility:hidden;
+}
+
 @media screen and (max-width: 1600px){
 	.logo {
 		margin:-302px 0 0 -196px;

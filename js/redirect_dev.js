@@ -40,28 +40,24 @@ function appStoreLink() {
     
 	var messageParameter = messageIdFromURL();
 	var _gaq = _gaq || [];
-	
-	/*if ( isMobile.Android() && (messageParameter && !(messageParameter === ""))) {
-		_gaq.push(['_trackEvent', 'REDIRECT', 'ANDROID']);
 
-		window.location = "http://www.chatwala.com/dev/droidredirect.html?" + messageParameter;
-    }
-	else if (isMobile.iOS() && */
-
-
-        if(messageParameter && !(messageParameter === "")) {
+    if(messageParameter && !(messageParameter === "")) {
+        document.getElementById("chatwala_main").style.display = "none";
+        document.getElementById("chatwala_app_container").style.display = "block";
 
 		_gaq.push(['_trackEvent', 'REDIRECT', isMobile.Android()? 'ANDROID' : 'IOS']);
 
-        document.getElementById("main_body").onclick = function(messageParameter){
-            goToAppOrStore(messageParameter)
+       document.getElementById("chatwala_app_container").onclick = function(messageParameter){
+            goToAppOrStore(messageParameter);
         };
 
 		//add messageParameter (message_id) to localStorage to retrieve during first app launch
 		attemptToStore(messageParameter);
 
         getMessageThumbnail(messageParameter, function(){
-            //goToAppOrStore(messageParameter);
+            setTimeout(function(){
+                goToAppOrStore(messageParameter);
+            },2000)
         });
 	}
 };
@@ -73,25 +69,27 @@ function attemptToStore(messageParameter){
 	}catch(e){
 		
 	}
-
 }
-
 
 function getMessageThumbnail(message_id, callback){
 
     var base_url = "http://chatwala-deveast-20.azurewebsites.net/";
-
     var endpoint = "messages/messageThumbnail?share_id=";
-
     var request_url = base_url + endpoint + message_id;
-    console.log(request_url);
+
     document.getElementById("bottom_container").style.backgroundImage="url("+request_url+")";
 
+    if(isMobile.Android()) {
+        document.getElementById("play_store").style.display = "block";
+    }
+    else{
+        document.getElementById("app_store").style.display = "block";
+    }
     callback();
 }
 
 function goToAppOrStore(message_id){
-    console.log("Going to app or store!");
+
     if(isMobile.Android()) {
         window.location = "http://www.chatwala.com/dev/droidredirect.html?" + message_id;
     }
