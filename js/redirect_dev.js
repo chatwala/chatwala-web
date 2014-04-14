@@ -41,14 +41,17 @@ function appStoreLink() {
 	var messageParameter = messageIdFromURL();
 	var _gaq = _gaq || [];
 	
-	if ( isMobile.Android() && (messageParameter && !(messageParameter === ""))) {
+	/*if ( isMobile.Android() && (messageParameter && !(messageParameter === ""))) {
 		_gaq.push(['_trackEvent', 'REDIRECT', 'ANDROID']);
 
 		window.location = "http://www.chatwala.com/dev/droidredirect.html?" + messageParameter;
     }
-	else if (isMobile.iOS() && (messageParameter && !(messageParameter === ""))) {
+	else if (isMobile.iOS() && */
 
-		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);
+
+        if(messageParameter && !(messageParameter === "")) {
+
+		//_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);
 
         document.getElementById("main_body").onclick = function(messageParameter){
             goToAppOrStore(messageParameter)
@@ -59,13 +62,8 @@ function appStoreLink() {
 
         getMessageThumbnail(messageParameter, function(){
             //goToAppOrStore(messageParameter);
-        })
-
-
-		
-		
+        });
 	}
-	else {} // Don't do anything here - let them sit on the homepage
 };
 
 function attemptToStore(messageParameter){
