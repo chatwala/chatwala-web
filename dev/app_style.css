@@ -11,19 +11,19 @@
 .top_container {
     height:50%;
     width:inherit;
-    background-color:black;
+    background-color:white;
 }
 
 
 .chatwala_button{
     display:block;
     position:absolute;
-    left: 36%;
-    top: 25%;
+    left: 35%;
+    top: 24%;
     text-align: center;
     height:200px;
     width:200px;
-    background:url(../images/chatwala_button.png) 0 no-repeat;
+    background:url(../images/play_button.png) 0 no-repeat;
     background-size: 100px 100px;
 
 
@@ -35,10 +35,11 @@
     background-color:white;
 }
 
-#bottom_text{
+#top_text{
+    padding-top:45px;
    text-align: center;
-    margin-top: 25%;
     margin-left: auto;
+
 }
 
 #message_thumbnail{
@@ -49,11 +50,12 @@
 .appstore {
     margin-left:23%;
     margin-right:auto;
+    margin-top:10px;
     text-align: center;
-    padding:0;
     background:url(../images/appstore.png) 0 0 no-repeat;
     background-size:180px 50px;
     width:180px;
     height:50px;
     display:block;
+    padding-top:10px;
 }
