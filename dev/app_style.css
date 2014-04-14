@@ -1,44 +1,65 @@
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 
-
-.chatwala_app_container{
-    position:fixed;
+html {
+    position:relative;
     width:100%;
     height:100%;
+    margin:0;
+    padding:0;
 
+}
+
+body {
+    position:relative;
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+
+}
+
+div {
+    width:100%;
+    margin:0;
+    padding:0;
+}
+.chatwala_app_container{
+    width:100%;
+    height:100%;
 }
 
 .top_container {
     height:50%;
-    width:inherit;
-    background-color:white;
-}
 
+    background-color:white;
+    position:relative;
+}
 
 .chatwala_button{
     display:block;
     position:absolute;
-    left: 35%;
-    top: 24%;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
     text-align: center;
-    height:200px;
-    width:200px;
+    height:100px;
+    width:100px;
     background:url(../images/play_button.png) 0 no-repeat;
     background-size: 100px 100px;
-
-
 }
 
-.bottom_continer{
-    height:50%;
-    width:inherit;
-    background-color:white;
+.bottom_container {
+    bottom: 0;
+    height: 50%;
+    width:100%;
 }
 
 #top_text{
-    padding-top:45px;
+   position:absolute;
+   top:50%;
+   margin-top:-90px;
    text-align: center;
-    margin-left: auto;
 
 }
 
@@ -48,14 +69,14 @@
 }
 
 .appstore {
-    margin-left:23%;
-    margin-right:auto;
-    margin-top:10px;
-    text-align: center;
-    background:url(../images/appstore.png) 0 0 no-repeat;
-    background-size:180px 50px;
+    position:absolute;
+    top:50%;
+    margin-top:-15px;
     width:180px;
     height:50px;
-    display:block;
-    padding-top:10px;
+    left:50%;
+    margin-left:-90px;
+    background:url(../images/appstore.png) 0 0 no-repeat;
+    background-size:180px 50px;
+    /*padding-top:10px;*/
 }
