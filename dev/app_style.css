@@ -2,16 +2,16 @@
 
 html {
     position:relative;
-    width:320px;
-    height:480px;
+    width:100%;
+    height:100%;
     margin:0;
     padding:0;
 }
 
 body {
     position:relative;
-    width:320px;
-    height:480px;
+    width:100%;
+    height:100%;
     margin:0;
     padding:0;
     overflow:hidden;
@@ -46,6 +46,7 @@ div {
     width:100px;
     background:url(../images/play_button.png) 0 no-repeat;
     background-size: 100px 100px;
+    z-index: 100;
 }
 
 .bottom_container {
