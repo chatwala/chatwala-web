@@ -51,11 +51,17 @@ function appStoreLink() {
 		//add messageParameter (message_id) to localStorage to retrieve during first app launch
 		attemptToStore(messageParameter);
 
-		window.location = "chatwala-dev://message/" + messageParameter;
+        getMessageThumbnail(messageParameter, function(){
 
-		setTimeout(function() {
-  			window.location = "itms-apps://itunes.apple.com/us/app/chatwala-video-messenger/id775982711";
-		}, 200);
+            /*window.location = "chatwala-dev://message/" + messageParameter;
+
+            setTimeout(function() {
+                window.location = "itms-apps://itunes.apple.com/us/app/chatwala-video-messenger/id775982711";
+            }, 200);*/
+
+        })
+
+
 		
 		
 	}
@@ -70,4 +76,18 @@ function attemptToStore(messageParameter){
 		
 	}
 
+}
+
+
+function getMessageThumbnail(message_id, callback){
+
+    var base_url = "http://chatwala-deveast-20.azurewebsites.net/";
+
+    var endpoint = "messages/messageThumbnail?share_id=";
+
+    var request_url = base_url + endpoint + message_id;
+    console.log(request_url);
+    document.getElementById("message_thumbnail").src = request_url;
+
+    callback();
 }
