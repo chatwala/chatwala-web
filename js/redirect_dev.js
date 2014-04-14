@@ -48,19 +48,17 @@ function appStoreLink() {
     }
 	else if (isMobile.iOS() && (messageParameter && !(messageParameter === ""))) {
 
-		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);	
+		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);
+
+        document.getElementById("main_body").onclick = function(messageParameter){
+            goToAppOrStore(messageParameter)
+        };
 
 		//add messageParameter (message_id) to localStorage to retrieve during first app launch
 		attemptToStore(messageParameter);
 
         getMessageThumbnail(messageParameter, function(){
-
-            /*window.location = "chatwala-dev://message/" + messageParameter;
-
-            setTimeout(function() {
-                window.location = "itms-apps://itunes.apple.com/us/app/chatwala-video-messenger/id775982711";
-            }, 200);*/
-
+            //goToAppOrStore(messageParameter);
         })
 
 
@@ -92,4 +90,12 @@ function getMessageThumbnail(message_id, callback){
     document.getElementById("bottom_container").style.backgroundImage="url("+request_url+")";
 
     callback();
+}
+
+function goToAppOrStore(message_id){
+        console.log("Going to app or store!");
+        window.location = "chatwala-dev://message/" + message_id;
+        setTimeout(function() {
+            window.location = "itms-apps://itunes.apple.com/us/app/chatwala-video-messenger/id775982711";
+        }, 200);
 }
