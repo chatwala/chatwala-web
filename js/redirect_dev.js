@@ -47,7 +47,7 @@ function appStoreLink() {
 
 		_gaq.push(['_trackEvent', 'REDIRECT', isMobile.Android()? 'ANDROID' : 'IOS']);
 
-       document.getElementById("chatwala_app_container").onclick = function(messageParameter){
+       document.getElementById("chatwala_app_container").onclick = function(mouse_event){
             goToAppOrStore(messageParameter);
         };
 
