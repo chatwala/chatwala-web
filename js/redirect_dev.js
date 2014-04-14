@@ -37,6 +37,7 @@ function messageIdFromURL(){
 }
 
 function appStoreLink() {
+    
 	var messageParameter = messageIdFromURL();
 	var _gaq = _gaq || [];
 	
@@ -46,6 +47,7 @@ function appStoreLink() {
 		window.location = "http://www.chatwala.com/dev/droidredirect.html?" + messageParameter;
     }
 	else if (isMobile.iOS() && (messageParameter && !(messageParameter === ""))) {
+
 		_gaq.push(['_trackEvent', 'REDIRECT', 'IOS']);	
 
 		//add messageParameter (message_id) to localStorage to retrieve during first app launch
@@ -87,7 +89,7 @@ function getMessageThumbnail(message_id, callback){
 
     var request_url = base_url + endpoint + message_id;
     console.log(request_url);
-    document.getElementById("message_thumbnail").src = request_url;
+    document.getElementById("bottom_container").style.backgroundImage="url("+request_url+")";
 
     callback();
 }
