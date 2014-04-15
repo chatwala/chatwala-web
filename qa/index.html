@@ -6,50 +6,75 @@
     <link rel="icon" type="image/png" href="images/favicon.ico">
     <meta name="MobileOptimized" content="320">
     <title>Chatwala Video Messenger-QA</title>
-    <meta name='description' content="Chatwala is a video messaging app that lets you share your reaction to your friends' video messages.">
-    <meta name='keywords' content='Messenger, Chat, Video, SMS, MMS, Video Messages, Video Messaging, Text Messaging, Video Chat, Record Friends, photo messaging'>
+    <meta name='description'
+          content="Chatwala is a video messaging app that lets you share your reaction to your friends' video messages.">
+    <meta name='keywords'
+          content='Messenger, Chat, Video, SMS, MMS, Video Messages, Video Messaging, Text Messaging, Video Chat, Record Friends, photo messaging'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="../js/custom.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./app_style.css"/>
     <script src="../js/redirect_qa.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             appStoreLink();
         });
     </script>
 </head>
 
-<body>
-    <div class="logo"></div>
+<body id="main_body">
+<div id="chatwala_main">
+    <div class="logo">
+        <img id="message_thumbnail" width="150px" alt=""/>
+    </div>
     <div class="menu">
-       <a class="about" href="#">About</a>
-   </div>
-   <div class="social_icons">
-    <a class="facebook" href="https://www.facebook.com/ChatwalaApp" target="_blank"></a>
-    <a class="twitter" href="https://twitter.com/ChatwalaApp" target="_blank"></a>
-</div>
-<div class="app">
-	<a class="appstore" href="http://appstore.com/chatwalavideomessenger"></a>
-    <a class="googleplay" href="http://play.google.com/store/apps/details?id=com.chatwala.chatwala"></a>
-</div>
-<div class="col1"></div>
-<div class="col2"></div>
-<div class="copyright">
-	<p>
-    &copy; Copyright Chatwala 2014 | 
-    <a href="privacy" target="_blank">Privacy Policy</a> |
-    <a href="tos" target="_blank">Terms Of Service</a>
-  </p>
-</div>
+        <a class="about" href="#">About</a>
+    </div>
+    <div class="social_icons">
+        <a class="facebook" href="https://www.facebook.com/ChatwalaApp" target="_blank"></a>
+        <a class="twitter" href="https://twitter.com/ChatwalaApp" target="_blank"></a>
+    </div>
+    <div class="app">
+        <a class="appstore" href="http://appstore.com/chatwalavideomessenger"></a>
+        <a class="googleplay" href="http://play.google.com/store/apps/details?id=com.chatwala.chatwala"></a>
+    </div>
+    <div class="col1"></div>
+    <div class="col2"></div>
+    <div class="copyright">
+        <p>
+            &copy; Copyright Chatwala 2014 |
+            <a href="privacy" target="_blank">Privacy Policy</a> |
+            <a href="tos" target="_blank">Terms Of Service</a>
+        </p>
+    </div>
 
-<div class="lightBox">
-	<a class="close" href="#"></a>
-    <div class="clear"></div>
-    <h1>Chatwala</h1>
-    <p>Chatwala exists to make communication personal again. We strive to enable authentic and timeless conversations between friends. Chatwala is a new video messaging application that lets you share your reaction to your friends' video messages. Try it out.</p>
-    <p>Our company values are simplicity, authenticity, and presence. Say hello any time:</p>
-    <p class="dotted_line"><a href="mailto:hello@chalwala.com">hello@chatwala.com</a></p>
-    <span class="lightBox_copyright">&copy; Copyright Chatwala 2014 | <a href="privacy" target="_blank">Privacy Policy</a> | <a href="tos" target="_blank">Terms Of Service</a></span>
+
+    <div class="lightBox">
+        <a class="close" href="#"></a>
+
+        <div class="clear"></div>
+        <h1>Chatwala</h1>
+
+        <p>Chatwala exists to make communication personal again. We strive to enable authentic and timeless
+            conversations between friends. Chatwala is a new video messaging application that lets you share your
+            reaction to your friends' video messages. Try it out.</p>
+
+        <p>Our company values are simplicity, authenticity, and presence. Say hello any time:</p>
+
+        <p class="dotted_line"><a href="mailto:hello@chalwala.com">hello@chatwala.com</a></p>
+        <span class="lightBox_copyright">&copy; Copyright Chatwala 2014 | <a href="privacy" target="_blank">Privacy
+            Policy</a> | <a href="tos" target="_blank">Terms Of Service</a></span>
+    </div>
+</div>
+<div id="chatwala_app_container">
+    <div class="top_container">
+        <div id="top_text"><span>Download Chatwala to see your </br> friend's message!</span></div>
+        <a id="app_store" class="appstore" href="http://appstore.com/chatwalavideomessenger"></a>
+        <a id="play_store" class="googleplay"
+           href="http://play.google.com/store/apps/details?id=com.chatwala.chatwala"></a>
+    </div>
+    <div class="chatwala_button"></div>
+    <div id="bottom_container">
+    </div>
 </div>
 </body>
 </html>
